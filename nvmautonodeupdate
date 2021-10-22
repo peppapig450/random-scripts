@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# load nvm so we can run commands using it
+source $HOME/.nvm/nvm.sh
+
+# get your current node and npm versions
+npmver=$(npm --version)
+nodever=$(node --version)
+
+# get latest node version from nvm
+nodelat=$(nvm ls-remote --no-color | tail -n 1 | xargs)
+# possibly use this instead
+# nvm ls-remote --no-colors | tail -n 1 | cut -c 3- | sed 's/.$//' | xargs 
+if [[ "$nodever" == "$nodelat" ]]; then
+  echo "Node is up to date"
+else
+  echo "Node is not up to date"
+  nvm install node; nvm use node
+fi

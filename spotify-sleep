@@ -1,0 +1,44 @@
+#!/usr/bin/env bash 
+
+####################################
+# Usage                            # 
+####################################
+usage() {
+  echo "Syntax: $0 [-h] [-t <minutes>]"
+  echo "For more detailed info about how to use this script run $0 -h"
+}
+
+####################################
+# Help                             #
+####################################
+help() {
+  # Display Help
+  echo "A script to close Spotify after a certain amount of time."
+  echo 
+  echo "Syntax: $0 [-h] [-t <minutes>]"
+  echo
+  echo "Options:"
+  echo "-h                        Print this help message."
+  echo "-t <minutes>              Close Spotify in <minutes> minutes."
+  echo
+}
+
+[ $# -eq 0 ] && usage
+while getopts "ht:" arg; do 
+  case $arg in
+    h) 
+      help
+      exit 0
+      ;;
+    t)
+      time=$(( ${OPTARG} * 60 ))
+      sleep "$time"
+      kill -15 $(pgrep Spotify)
+      exit 0
+      ;;
+    *) 
+      usage
+      exit 0
+      ;;
+  esac
+done

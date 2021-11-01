@@ -1,5 +1,6 @@
 #!/usr/bin/env bash 
 
+# an example of args in bash with long options (uses gnu getopt)
 aflag=no 
 bflag=no 
 cargument=none 

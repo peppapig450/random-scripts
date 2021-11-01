@@ -1,5 +1,7 @@
 #!/usr/bin/env bash 
 
+# an example of using args in a bash script 
+
 optspec=":hv-:"
 while getopts "$optspec" optchar; do
   case "${optchar}" in

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# super simple getopts example
 directory="$HOME"
 depth=123
 while getopts "hd:l" opt; do

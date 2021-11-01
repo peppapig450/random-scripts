@@ -1,4 +1,4 @@
-# Random Shell Scripts
+# Scripts
 
 Just some random bash scripts mostly used to test things for my main bash scripts, I put them here to test across my devices.
 
@@ -11,3 +11,4 @@ Just some random bash scripts mostly used to test things for my main bash script
   - New folder? 
   - New Repo?
 - [ ] Get rid of all the useless stuff
+- [ ] Organize into folders and document what to do probably here

@@ -1,5 +1,4 @@
-#!/bin/bash 
-
+#!/usr/bin/env bash 
 trap "tput reset; tput cnorm; exit" 2
 clear
 tput civis
@@ -34,10 +33,20 @@ for ((i=1; i<=3; i++))
     echo 'mWm'
 }
 
+# Get days until Christmas 
+XMAS=$(gdate -d "Dec 25" +%j)
+TODAY=$(gdate +%j)
+DAYS=$(( "$XMAS" - "$TODAY" ))
+if [[ "$DAYS" -gt '0' ]]; then 
+  greet=''
+else 
+  greet="Merry Christmas!!"
+fi
+
 # Write a greeting
 tput setaf 93; tput bold
-tput cup $lin $((c - 15)); printf '%24s\n' "Merry Christmas"
-tput cup $((lin + 1)) $((c - 11)); echo 'And a happy new year 2022'
+tput cup $lin $((c - 11)); printf '%s\n' "$DAYS days until Christmas!!!"
+# tput cup $((lin + 1)) $((c - 11)); echo 'And a happy new year 2022'
 let c++
 k=1
 
@@ -48,7 +57,7 @@ while true; do
         [ $k -gt 1 ] && {
             tput setaf 2; tput bold
             tput cup ${line[$[k-1]$i]} ${column[$[k-1]$i]}; echo \*
-            unset line[$[k-1]$i]; unset column[$[k-1]$i]  # Array cleanup
+            unset line[$[k-1]$i]; unset column[$[k-1]$i] # Array cleanup
         }
 
         li=$((RANDOM % 9 + 10))
@@ -63,3 +72,4 @@ while true; do
     }
     k=$((k % 2 + 1))
   done
+ 

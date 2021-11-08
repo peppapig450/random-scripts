@@ -5,7 +5,8 @@ cg="\033[0;0m\033[1;32m"
 cb="\033[0;0m\033[1;34m"
 help() { printf "${cg}rain: rain of text
 Usage: rain ${cb}text${cg} ${cb}[delay]${cg}
-Example: rain ${cb}\" █ \"${cg} ${cb}0.05" }
+Example: rain ${cb}\" █ \"${cg} ${cb}0.05 
+${cr}Report issues at: https://github.com/peppapig450/random-scripts/\n" && exit 1; }
 
 case $1 in 
   "") printf "${cr}Error: No Text Provided.\n" && exit 1;;

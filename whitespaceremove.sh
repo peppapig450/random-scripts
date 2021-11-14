@@ -1,29 +1,32 @@
-#!/bin/bash
+#!/usr/bin/env bash 
+
+set -x
 
 ###########################
 # Usage                   #
 ###########################
 usage() {
-  echo "Syntax: $0 [-h] [-d <directory>] [-s <search term>]"
-  echo "For more detailed information about how to use this sript run $0 -h"
+  echo "Syntax: $0 [-h] [-d <directory>] [-s <search term>] [ -r <replace character> ]"
+  echo "For more detailed information about how to use this scrit run $0 -h"
 }
 
 ###########################
 # Help                    # 
 ###########################
 help() {
-  echo "A script to remove whitespace from filenames."
+  echo "A script to remove/replace whitespace from filenames."
   echo
   usage 
   echo "Options:"
   echo "-h                      Print this help message and exit."
   echo "-d <directory>          Specify the directory to remove whitespace from (default is the current directory)"
   echo "-s <search term>        Term to filter the filenames you want to remove whitespace from"
+  echo "-r <replace character>  Character to replace the whitespace with (default is none)" 
   echo
 }
 
 [ $# -eq 0 ] && usage
-while getopts "hd:s:" arg; do
+while getopts "hd:s:r:" arg; do
   case $arg in 
     h)
       help 
@@ -35,6 +38,9 @@ while getopts "hd:s:" arg; do
     s)
       search=${OPTARG}
       ;;
+    r)
+      char=${OPTARG}
+      ;;
     *)
       usage 
       exit 0
@@ -42,8 +48,6 @@ while getopts "hd:s:" arg; do
   esac 
 done 
  
-
-
 if [[ ! -z "$dir" ]]; then
   directory="$dir"
 else 
@@ -54,7 +58,11 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 for oldname in $(find "$directory" -type f) 
 do 
-newname=$(echo $oldname | sed -e 's/ //g') 
+  if [[ ! -z "$char" ]]; then 
+    newname=$(echo $oldname | sed -e "s/ /$char/g")
+  else 
+    newname=$(echo $oldname | sed -e 's/ //g')
+  fi
    mv -i "$oldname" "$newname" 2> /dev/null
 done
 IFS=$SAVEIFS

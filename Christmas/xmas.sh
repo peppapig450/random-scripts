@@ -43,8 +43,12 @@ else
   greet="Merry Christmas!!"
 fi
 
+# Draw a star on top 
+tput setaf 190; tput bold
+tput cup $((lin -23)) $((c + 1)); printf '%b' "\u2606"
+
 # Write a greeting
-tput setaf 93; tput bold
+tput setaf 170; tput bold
 tput cup $lin $((c - 11)); printf '%s\n' "$DAYS days until Christmas!!!"
 # tput cup $((lin + 1)) $((c - 11)); echo 'And a happy new year 2022'
 let c++

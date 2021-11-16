@@ -7,37 +7,53 @@ Just some random bash scripts mostly used to test things for my main bash script
 
 ### Folder Structure
 ```tree
+├── Christmas
+│   ├── Christmas.md
+│   ├── christmas.sh
+│   ├── tree.sh
+│   └── xmas.sh
+├── README.md
 ├── actually-random
 │   ├── distro.py
 │   ├── hello
 │   ├── hi-alyssa.sh
-│   ├── testint2.sh
-│   └── testint.sh
-├── Christmas
-│   ├── christmas.sh
-│   └── tree.sh
+│   ├── randpic.sh
+│   ├── testint.sh
+│   └── testint2.sh
+├── arch-kernels
+│   └── kernels.md
+├── block.sh
+├── block_conf
 ├── color-scripts
 │   └── tomorrow-night-bright.sh
+├── colorscheme.sh
 ├── examples
 │   ├── bash-args-example1.sh
 │   ├── bash-args-example2.sh
 │   ├── bash-getopt-example1.sh
 │   ├── bash-getopts-example.sh
 │   └── getopts2.sh
+├── info
+│   └── desktop-env.csv
 ├── rain.sh
-├── README.md
+├── random-test
+│   ├── alt-color.sh
+│   ├── color.sh
+│   ├── menu.sh
+│   ├── title1.sh
+│   └── title2.sh
+├── remove-random-shit.sh
 ├── spotify-sleep
 ├── tests
 │   ├── test-nerd-fonts.sh
 │   ├── test-powerline-font.sh
-│   ├── tput-colors.sh
-│   └── tput-color-table.sh
+│   ├── tput-color-table.sh
+│   └── tput-colors.sh
 ├── whitespaceremove.sh
 └── wip
     ├── checksumstest.sh
     ├── mappings-nvchad
     │   ├── getmap.sh
-    │   ├── map
     │   └── nvchad-map-script-test.sh
     └── rsync-neovim-configs.sh
 ```

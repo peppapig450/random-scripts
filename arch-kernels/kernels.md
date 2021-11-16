@@ -28,5 +28,21 @@
 - Next 
 > Package Name: linux-next-git 
 
-> Longterm 4.4 
-> Package NAme: linux-lts44
+- Longterm 4.4 
+> Package Name: linux-lts44
+
+- Longterm 4.9
+> Package Name: linux-lts49 
+
+- Longterm 4.14
+> Package Name: linux-lts414 
+
+- Longterm 4.19
+> Package Name: linux-lts419
+
+- Longterm 5.4 
+> Package Name: linux-lts54 
+
+## Unofficial Kernels (AUR)
+
+

@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash
 
 string=$(uname -r | awk -F- '{print $2}')
 shopt -s extglob

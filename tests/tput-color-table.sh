@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash 
 
 for ((i=0; i<256; i++)) ;do
     echo -n '  '

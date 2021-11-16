@@ -1,5 +1,5 @@
-#!/bin/bash
-<<<<<<< HEAD
+#!/usr/bin/env bash 
+
 pic() {
         files=$(find "$HOME/Downloads/tmp/Pics/Pictures/" -type f -print0 | shuf -z -n 1)
         if [[ $(echo "$files" | awk -F. '{print $2}') == 'mp4' ]]; then 

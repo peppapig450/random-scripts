@@ -1,5 +1,11 @@
 #!/usr/bin/env bash 
 
+if [[ $(uname -s) == 'Darwin' ]]; then 
+    prloc='/opt/homerew/bin/gpr'
+else 
+    prloc='/usr/bin/pr'
+fi 
+
 COL=$(tput cols)
 
 main_menu() {
@@ -30,7 +36,7 @@ main_menu() {
     printf "    22) Option 22\n"
     printf "    23) Option 23\n"
     printf "    24) Option 24\n"
-  } | /opt/homebrew/bin/gpr -t2 -w "$((COL-70))"
+  } | "$prloc" -t2 -w "$((COL-70))"
     printf "\n"
     printf "    x) x to exit\n"
     printf "    Your choice: "

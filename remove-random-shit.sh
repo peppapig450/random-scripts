@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash 
 
 for pathname in "$HOME/Music/Songs"/*.mp3; do
   [ ! -f "$pathname" ] && continue

@@ -1,1 +1,45 @@
+# ways to get primary ip address/interface info on linux only for now
+
+# ways to get primary ip address
+
+# ip route 
+
+# not really working 
 ip route get 1 | sed -n '\''s/^.*src \([0-9.]*\) .*$/\1/p'\'''
+
+
+# awk implemantations
+ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}'
+ip route get 8.8.8.8 | gawk 'match($0,/src (\S*)/,a)&&$0=a[1]'
+ip route get 8.8.8.8 | awk '{for(i=1;i<=NF;i++)if($i~/src/)$0=$(i+1)}NR==1'
+
+# sed implemantations
+ip route get 8.8.8.8 | sed -E 's/.*src (\S+) .*/\1/;t;d'
+ip route get 8.8.8.8 | sed 's/.*src \([^ ]*\).*/\1/;t;d'
+ip route get 8.8.8.8 | sed  -nE '1{s/.*?src (\S+) .*/\1/;p}'
+
+# grep  implemantations
+ip route get 8.8.8.8 | grep -oP 'src \K[^ ]+'
+
+# using cut and tr 
+ip route get 8.8.8.8 | tr -s ' ' | cut -d' ' -f7
+
+# ways to get interface name
+
+# ip route
+
+# awk implemantations
+ip route get 8.8.8.8 | awk -F"dev " 'NR==1{split($2,a," ");print a[1]}'
+ip route get 8.8.8.8 | awk 'match($0,/dev (\S*)/,a)&&$0=a[1]'
+ip route get 8.8.8.8 | awk '{for(i=1;i<=NF;i++)if($i~/dev/)$0=$(i+1)}NR==1'
+
+# sed implemantations
+ip route get 8.8.8.8 | sed -E 's/.*?dev (\S+) .*/\1/;t;d'
+ip route get 8.8.8.8 | sed 's/.*dev \([^ ]*\).*/\1/;t;d'
+ip route get 8.8.8.8 | sed  -nE '1{s/.*?dev (\S+) .*/\1/;p}'
+
+# grep implemantations
+ip route get 8.8.8.8 | grep -oP 'dev \K[^ ]+'
+
+# macos 
+ifconfig en0 | grep -w "inet" | awk '{print $2}'

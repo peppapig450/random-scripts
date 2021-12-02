@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/opt/homebrew/bin/bash
 # Nerd Fonts Version: 2.1.0
 # Script Version: 1.0.0
 

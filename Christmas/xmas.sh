@@ -1,4 +1,11 @@
 #!/usr/bin/env bash 
+
+if [[ $(uname) =~ 'Linux' ]]; then 
+    datem='date'
+else 
+    datem='gdate'
+fi 
+
 trap "tput reset; tput cnorm; exit" 2
 clear
 tput civis
@@ -34,8 +41,8 @@ for ((i=1; i<=3; i++))
 }
 
 # Get days until Christmas 
-XMAS=$(gdate -d "Dec 25" +%j)
-TODAY=$(gdate +%j)
+XMAS=$($datem -d "Dec 25" +%j)
+TODAY=$($datem +%j)
 DAYS=$(( "$XMAS" - "$TODAY" ))
 if [[ "$DAYS" -gt '0' ]]; then 
   greet=''

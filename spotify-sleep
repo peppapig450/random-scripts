@@ -33,7 +33,7 @@ while getopts "ht:" arg; do
     t)
       time=$(( ${OPTARG} * 60 ))
       sleep "$time"
-      kill -15 $(pgrep Spotify)
+      pkill -15 Sptofiy
       exit 0
       ;;
     *) 

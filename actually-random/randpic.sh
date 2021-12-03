@@ -37,7 +37,6 @@ pic() {
           files=$(find "$HOME/Downloads/tmp/Pics/Pictures/" -type f -print0 | shuf -z -n 1)
         else  
           files=$(find ../Pictures/ -type f -print0 | shuf -z -n 1 | tr -d '\0')
->>>>>>> 521147fb221816ffd6a9c010ec8a027ed6d1dd4f
         fi
 }
 pic

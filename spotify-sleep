@@ -32,13 +32,26 @@ while getopts "ht:" arg; do
       ;;
     t)
       time=$(( ${OPTARG} * 60 ))
+<<<<<<< Updated upstream
       sleep "$time"
       pkill -15 Sptofiy
+=======
+      printf '%s %d %s\n' "Closing spotify in" "$OPTARG" "minutes."
+      #sleep "$time"
+      x=$time
+      while [ $x -gt 0 ]; do 
+        sleep 60
+        x=$(($x-60))
+        t=$(($x/60))
+        printf '%d %s\n' "$t" "minutes remaining..."
+      done
+      pkill -15 Spotify 
+>>>>>>> Stashed changes
       exit 0
       ;;
     *) 
       usage
-      exit 0
+      exit 1
       ;;
   esac
 done
